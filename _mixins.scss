@@ -1,0 +1,25 @@
+$breakpoints: ( ('xs', $screen-xs), ('sm', $screen-sm), ('md', $screen-md), ('lg', $screen-lg) );
+
+@mixin make-fixed-grid() {
+  @each $item in $breakpoints {
+    @media (min-width: #{nth($item, 2)} ) {
+      // background: red;
+      @include make-fixed-grid-columns( $grid-columns, nth($item, 1), width, nth($item, 2) );
+    }
+  }
+}
+
+@mixin make-fixed-grid-columns($columns, $class, $type, $break) {
+  @for $i from 0 through $columns {
+    @include calc-fixed-column-width($i, $class, $type, $break);
+  }
+}
+
+@mixin calc-fixed-column-width($index, $class, $type, $break) {
+  @if ($type == width) and ($index > 0) {
+    .col-#{$class}-fixed-#{$index} {
+      width: ($index / $grid-columns) * $break;
+    }
+  }
+  // may add support for offsets and push/pull
+}
