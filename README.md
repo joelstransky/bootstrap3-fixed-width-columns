@@ -2,7 +2,8 @@
 Generate classes for fixed width columns
 
 usage:
-`@include make-fixed-grid;
+```
+@include make-fixed-grid;
 
 .page-nav{
   &.affix {
@@ -14,4 +15,5 @@ usage:
     padding-left: 15px;
     padding-right: 15px;
   }
-}`
+}
+```
