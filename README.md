@@ -1,5 +1,6 @@
 # bootstrap3-fixed-width-columns
-Generate classes for fixed width columns
+Generate classes for fixed width columns.
+
 This only applies to columns who are children of a `.container`. Fixed width's would have to be re-calculated at runtime if used within `.container-fixed`
 
 [demo](http://codepen.io/JoelStransky/pen/VKPVAG)
