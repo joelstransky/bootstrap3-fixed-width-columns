@@ -23,3 +23,19 @@ $breakpoints: ( ('xs', $screen-xs), ('sm', $screen-sm), ('md', $screen-md), ('lg
   }
   // may add support for offsets and push/pull
 }
+
+@mixin make-fixed-widths( $class ) {
+  @each $item in $breakpoints {
+    @for $i from 1 through $grid-columns {
+      @include make-fixed-width(nth($item, 1), $i, $class);
+    }
+  }
+}
+
+@mixin make-fixed-width($size, $index, $class ) {
+  #{$class} {
+    .col-#{$size}-#{$index} & {
+      @extend .col-#{$size}-fixed-#{$index};
+    }
+  }
+}
