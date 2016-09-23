@@ -1,6 +1,8 @@
 # bootstrap3-fixed-width-columns
 Generate classes for fixed width columns
 
+[demo](http://codepen.io/JoelStransky/pen/VKPVAG)
+
 usage:
 ```
 @include make-fixed-grid;
@@ -21,4 +23,5 @@ usage:
 To add fixed widths to any child of a column
 ```
 @include make-fixed-widths( '.affix' );
+@include make-fixed-widths( '.affix-bottom' );
 ```
