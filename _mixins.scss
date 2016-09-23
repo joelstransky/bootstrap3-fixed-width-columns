@@ -1,10 +1,11 @@
-$breakpoints: ( ('xs', $screen-xs), ('sm', $screen-sm), ('md', $screen-md), ('lg', $screen-lg) );
+// breakpoint list ('column type', 'screen breakpoint', 'container width @ break point')
+$breakpoints: ( ('xs', $screen-xs, $screen-xs), ('sm', $screen-sm, $container-sm), ('md', $screen-md, $container-md), ('lg', $screen-lg, $container-lg) );
 
 @mixin make-fixed-grid() {
   @each $item in $breakpoints {
     @media (min-width: #{nth($item, 2)} ) {
       // background: red;
-      @include make-fixed-grid-columns( $grid-columns, nth($item, 1), width, nth($item, 2) );
+      @include make-fixed-grid-columns( $grid-columns, nth($item, 1), width, nth($item, 3) );
     }
   }
 }
@@ -18,10 +19,9 @@ $breakpoints: ( ('xs', $screen-xs), ('sm', $screen-sm), ('md', $screen-md), ('lg
 @mixin calc-fixed-column-width($index, $class, $type, $break) {
   @if ($type == width) and ($index > 0) {
     .col-#{$class}-fixed-#{$index} {
-      width: ($index / $grid-columns) * $break;
+      width: (($index / $grid-columns) * $break) - $grid-gutter-width;
     }
   }
-  // may add support for offsets and push/pull
 }
 
 @mixin make-fixed-widths( $class ) {
