@@ -16,7 +16,6 @@ $breakpoints: ( ('xs', $screen-xs, $screen-xs), ('sm', $screen-sm, $container-sm
   }
 }
 
-// optional, use this to inject fixed widths to any class
 @mixin calc-fixed-column-width($index, $class, $type, $break) {
   @if ($type == width) and ($index > 0) {
     .col-#{$class}-fixed-#{$index} {
@@ -25,6 +24,7 @@ $breakpoints: ( ('xs', $screen-xs, $screen-xs), ('sm', $screen-sm, $container-sm
   }
 }
 
+// optional, use this to inject fixed widths to any class
 @mixin make-fixed-widths( $class ) {
   @each $item in $breakpoints {
     @for $i from 1 through $grid-columns {
