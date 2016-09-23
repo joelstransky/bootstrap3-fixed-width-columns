@@ -17,3 +17,8 @@ usage:
   }
 }
 ```
+
+To add fixed widths to any child of a column
+```
+@include make-fixed-widths( '.affix' );
+```
